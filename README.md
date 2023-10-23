@@ -16,3 +16,6 @@ adding some buttons and the username from the setting page.
 ### ScreenShot
 <img src="screenshots/screenshotLab27.png" width="300">
 
+------------------------------------------
+### RecyclerViews for Displaying Lists of Data
+
