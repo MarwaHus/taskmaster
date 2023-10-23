@@ -1,4 +1,4 @@
-package com.androidlab.taskmaster;
+package com.androidlab.taskmaster.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +7,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.androidlab.taskmaster.R;
 
 public class AddTaskActivity extends AppCompatActivity {
     private int totalTasks = 0;
