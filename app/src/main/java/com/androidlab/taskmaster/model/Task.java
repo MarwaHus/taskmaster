@@ -3,9 +3,9 @@ package com.androidlab.taskmaster.model;
 import com.androidlab.taskmaster.TaskEnum;
 
 public class Task {
-    private static String title;
-    private static String body;
-    private static TaskEnum state;
+    private String title;
+    private String body;
+    private TaskEnum state;
 
     public Task(String title, String body, TaskEnum state) {
         this.title = title;
@@ -13,15 +13,15 @@ public class Task {
         this.state = state;
     }
 
-    public static String getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    public static String getBody() {
+    public String getBody() {
         return body;
     }
 
-    public static TaskEnum getState() {
+    public TaskEnum getState() {
         return state;
     }
 

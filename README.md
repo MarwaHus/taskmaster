@@ -17,5 +17,10 @@ adding some buttons and the username from the setting page.
 <img src="screenshots/screenshotLab27.png" width="300">
 
 ------------------------------------------
-### RecyclerViews for Displaying Lists of Data
-
+# RecyclerViews for Displaying Lists of Data
+### Overview
+This task involves creating a Task class with a title, a body, and a state. The state should be one of "new", "assigned", "in progress", or "complete". The homepage should then be refactored to use a RecyclerView for displaying Task data, with at least three hardcoded Task instances populating the RecyclerView/ViewAdapter. Finally, the RecyclerView should have the ability to launch the detail page with the correct Task title displayed when a specific Task is tapped.
+### ScreenShot
+<img src="screenshots/lab28a.png" width="300">
+<img src="screenshots/lab28b.png" width="300">
+<img src="screenshots/lab28c.png" width="300">

@@ -16,13 +16,29 @@ public class TaskDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_detail);
-        TextView taskDetailsTextView = findViewById(R.id.taskDetails);
-        String task = getIntent().getStringExtra("task");
-        taskDetailsTextView.setText(task);
+      //  TextView taskDetailsTextView = findViewById(R.id.taskDetails);
+        String task = getIntent().getStringExtra(MainActivity.TASK_TITLE_TAG);
+       // taskDetailsTextView.setText(task);
+        Intent callingIntent = getIntent();
+        String title = "";
+        String body  = "";
+        String state = "";
 
+        if(callingIntent != null){
+            title = callingIntent.getStringExtra(MainActivity.TASK_TITLE_TAG);
+            body = callingIntent.getStringExtra(MainActivity.TASK_BODY_TAG);
+            state = callingIntent.getStringExtra(MainActivity.TASK_STATE_TAG);
+        }
 
+        TextView titleTextView = findViewById(R.id.titleTextView);
+        TextView bodyTextView = findViewById(R.id.bodyTextView);
+        TextView stateTextView = findViewById(R.id.stateTextView);
 
-        Button backTaskButton = (Button) findViewById(R.id.backk_button3);
+        titleTextView.setText(title);
+        bodyTextView.setText(body);
+        stateTextView.setText(state);
+
+        Button backTaskButton = findViewById(R.id.backk_button3);
         backTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -30,23 +46,4 @@ public class TaskDetailActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        Intent callingIntent = getIntent();
-        String title = null;
-        String body = null;
-        String state = null;
-
-
-        if(callingIntent != null){
-            title = callingIntent.getStringExtra(MainActivity.TASK_TITLE_TAG);
-            body = callingIntent.getStringExtra(MainActivity.TASK_BODY_TAG);
-            state = callingIntent.getStringExtra(MainActivity.TASK_STATE_TAG);
-
-        }
-
-        TextView titleTextView = (TextView) findViewById(R.id.titleTextView);
-        TextView bodyTextView = (TextView) findViewById(R.id.bodyTextView);
-        TextView stateTextView = (TextView) findViewById(R.id.stateTextView);
-
-}
-    }
+    }}
