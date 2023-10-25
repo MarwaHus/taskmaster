@@ -24,3 +24,24 @@ This task involves creating a Task class with a title, a body, and a state. The 
 <img src="screenshots/lab28a.png" width="300">
 <img src="screenshots/lab28b.png" width="300">
 <img src="screenshots/lab28c.png" width="300">
+
+--------------------------------------------------
+# Saving Data with Room
+### Overview
+In this task, we will set up Room in our application and modify our Task class to be an Entity. This will enable us to save Task data to our local database. We will also modify the Add Task form to save the entered data as a Task in the database. also we will refactor the homepage RecyclerView to display all Task entities in the database. Finally, we will ensure that the description and status of a tapped task are also displayed on the detail page, in addition to the title. 
+### ScreenShot
+<div>
+  <img src="screenshots/lab29.png" width="300">
+  <img src="screenshots/lab29a.png" width="300">
+</div>
+
+<div>
+  <img src="screenshots/lab29b.png" width="300">
+  <img src="screenshots/lab29c.png" width="300">
+</div>
+
+<div>
+  <img src="screenshots/lab29d.png" width="300">
+</div>
+
+

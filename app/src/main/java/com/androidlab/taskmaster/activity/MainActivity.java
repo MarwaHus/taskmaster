@@ -3,6 +3,7 @@ package com.androidlab.taskmaster.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import com.androidlab.taskmaster.R;
 import com.androidlab.taskmaster.TaskEnum;
 import com.androidlab.taskmaster.adapter.TaskAdapter;
+import com.androidlab.taskmaster.database.TaskDataBase;
 import com.androidlab.taskmaster.model.Task;
 
 import java.util.ArrayList;
@@ -24,8 +26,10 @@ public class MainActivity extends AppCompatActivity {
     public static final String TASK_TITLE_TAG = "title";
     public static final String TASK_BODY_TAG = "body";
     public static final String TASK_STATE_TAG = "state";
+    public static  final String DATABASE_NAME = "add_new_task";
     List<Task> tasks = new ArrayList<>();
     TaskAdapter adapter;
+    TaskDataBase taskDataBase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +43,15 @@ public class MainActivity extends AppCompatActivity {
        // Button task1 =(Button)findViewById(R.id.task1);
         //Button task2 =(Button)findViewById(R.id.task2);
         //Button task3 =(Button)findViewById(R.id.task3);
-
+        taskDataBase= Room.databaseBuilder(
+                getApplicationContext(),
+                TaskDataBase.class,
+                DATABASE_NAME)
+                .fallbackToDestructiveMigration()
+                .allowMainThreadQueries()
+                .build();
+                tasks=taskDataBase.taskDao().findAll();
+                setUpListRecyclerView();
         addTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,12 +114,12 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         ListRecyclerView.setLayoutManager(layoutManager);
 
-        tasks.add(new Task("TASK 1", "STUDY", TaskEnum.complete));
-        tasks.add(new Task("TASK 2", "WATCH MOVIE", TaskEnum.assigned));
-        tasks.add(new Task("TASK 3", "DO MY ASSIGNMENT", TaskEnum.in_progress));
-        tasks.add(new Task("TASK 4", "LEARN NEW THING", TaskEnum.New));
-        tasks.add(new Task("TASK 5", "STUDY", TaskEnum.in_progress));
-        tasks.add(new Task("TASK 6", "WATCH MOVIE", TaskEnum.complete));
+//        tasks.add(new Task("TASK 1", "STUDY", TaskEnum.complete));
+//        tasks.add(new Task("TASK 2", "WATCH MOVIE", TaskEnum.assigned));
+//        tasks.add(new Task("TASK 3", "DO MY ASSIGNMENT", TaskEnum.in_progress));
+//        tasks.add(new Task("TASK 4", "LEARN NEW THING", TaskEnum.New));
+//        tasks.add(new Task("TASK 5", "STUDY", TaskEnum.in_progress));
+//        tasks.add(new Task("TASK 6", "WATCH MOVIE", TaskEnum.complete));
         adapter = new TaskAdapter(tasks, this);
         ListRecyclerView.setAdapter(adapter);
     }
@@ -120,6 +132,8 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String username = preferences.getString(SettingsActivity.USER_NAME, "NO USERNAME");
         ((TextView) findViewById(R.id.nametextView)).setText(getString(R.string.username_main, username));
+        tasks = taskDataBase.taskDao().findAll();
+        setUpListRecyclerView();
     }
 
 }
