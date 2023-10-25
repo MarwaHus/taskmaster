@@ -18,22 +18,12 @@ import com.androidlab.taskmaster.model.Task;
 import java.util.List;
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskListViewHolder> {
-
     private List<Task> taskList;
     private Context context;
-    private OnItemClickListener onItemClickListener;
-
-    public interface OnItemClickListener {
-        void onItemClick(Task task);
-    }
 
     public TaskAdapter(List<Task> taskList, Context context) {
         this.taskList = taskList;
         this.context = context;
-    }
-
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        onItemClickListener = listener;
     }
 
     @NonNull
@@ -46,21 +36,18 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskListViewHo
     @Override
     public void onBindViewHolder(@NonNull TaskListViewHolder holder, int position) {
         TextView taskTextViewFragment = holder.itemView.findViewById(R.id.textViewTaskFragment);
-
         String title = taskList.get(position).getTitle();
         String body = taskList.get(position).getBody();
         String state = taskList.get(position).getState().name();
-
-        String taskInfo = "Title: " + title + "\nBody: " + body + "\nState: " + state;
+        String taskInfo = "Title: " + title   ;
         taskTextViewFragment.setText(taskInfo);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (onItemClickListener != null) {
-                    onItemClickListener.onItemClick(taskList.get(position));
-                }
-            }
+        holder.itemView.setOnClickListener(view -> {
+            Intent intent = new Intent(context, TaskDetailActivity.class);
+            intent.putExtra(MainActivity.TASK_TITLE_TAG, title);
+            intent.putExtra(MainActivity.TASK_BODY_TAG, body);
+            intent.putExtra(MainActivity.TASK_STATE_TAG, state.toString());
+            context.startActivity(intent);
         });
     }
 
