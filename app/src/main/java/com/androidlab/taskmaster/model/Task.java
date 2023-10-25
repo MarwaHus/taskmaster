@@ -1,17 +1,32 @@
 package com.androidlab.taskmaster.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.androidlab.taskmaster.TaskEnum;
 
-public class Task {
-    private String title;
-    private String body;
-    private TaskEnum state;
+import java.util.Date;
 
-    public Task(String title, String body, TaskEnum state) {
+@Entity
+public class Task {
+    @PrimaryKey(autoGenerate = true)
+    public    Long id;
+    String title;
+     String body;
+    TaskEnum state;
+
+    java.util.Date dateCreated;
+
+    public Task(String title, String body, TaskEnum state, Date dateCreated) {
         this.title = title;
         this.body = body;
         this.state = state;
+        this.dateCreated = dateCreated;
     }
+    public Long getId() {
+        return id;
+    }
+
 
     public String getTitle() {
         return title;
@@ -35,5 +50,13 @@ public class Task {
 
     public void setState(TaskEnum state) {
         this.state = state;
+    }
+
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
     }
 }
