@@ -14,7 +14,12 @@ The homepage should have a header section, an image to represent the "my tasks" 
 Add new pages : Task Detail Page and Settings Page, and update the Home Page by
 adding some buttons and the username from the setting page.
 ### ScreenShot
+<div>
 <img src="screenshots/screenshotLab27.png" width="300">
+<img src="screenshots/screenshotLab27a.png" width="300">
+<img src="screenshots/screenshotLab27b.png" width="300">
+</div>
+
 
 ------------------------------------------
 # RecyclerViews for Displaying Lists of Data
@@ -43,5 +48,4 @@ In this task, we will set up Room in our application and modify our Task class t
 <div>
   <img src="screenshots/lab29d.png" width="300">
 </div>
-
 
