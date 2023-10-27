@@ -16,8 +16,8 @@ adding some buttons and the username from the setting page.
 ### ScreenShot
 <div>
 <img src="screenshots/screenshotLab27.png" width="300">
-<img src="screenshots/screenshotLab27a.png" width="300">
-<img src="screenshots/screenshotLab27b.png" width="300">
+<img src="screenshots/lab27a.png" width="300">
+<img src="screenshots/lab27b.png" width="300">
 </div>
 
 
