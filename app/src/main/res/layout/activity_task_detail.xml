@@ -12,8 +12,6 @@
         android:id="@+id/taskDetails"
         android:layout_width="289dp"
         android:layout_height="40dp"
-        android:background="#FFEB3B"
-        android:backgroundTint="@color/white"
         android:ellipsize="none"
         android:fontFamily="serif-monospace"
         android:text="Task Detail"
