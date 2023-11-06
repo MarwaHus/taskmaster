@@ -39,7 +39,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskListViewHo
         String title = taskList.get(position).getTitle();
         String body = taskList.get(position).getBody();
         String state = taskList.get(position).getState().name();
-        String taskInfo = "Title: " + title   ;
+        String taskInfo = "Title: " + title;
         taskTextViewFragment.setText(taskInfo);
 
         holder.itemView.setOnClickListener(view -> {

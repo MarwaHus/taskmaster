@@ -16,15 +16,12 @@ public class TaskDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_detail);
-      //  TextView taskDetailsTextView = findViewById(R.id.taskDetails);
         String task = getIntent().getStringExtra(MainActivity.TASK_TITLE_TAG);
-       // taskDetailsTextView.setText(task);
         Intent callingIntent = getIntent();
         String title = "";
-        String body  = "";
+        String body = "";
         String state = "";
-
-        if(callingIntent != null){
+        if (callingIntent != null) {
             title = callingIntent.getStringExtra(MainActivity.TASK_TITLE_TAG);
             body = callingIntent.getStringExtra(MainActivity.TASK_BODY_TAG);
             state = callingIntent.getStringExtra(MainActivity.TASK_STATE_TAG);
@@ -33,7 +30,6 @@ public class TaskDetailActivity extends AppCompatActivity {
         TextView titleTextView = findViewById(R.id.titleTextView);
         TextView bodyTextView = findViewById(R.id.bodyTextView);
         TextView stateTextView = findViewById(R.id.stateTextView);
-
         titleTextView.setText(title);
         bodyTextView.setText(body);
         stateTextView.setText(state);
@@ -46,4 +42,5 @@ public class TaskDetailActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }}
+    }
+}
