@@ -10,9 +10,9 @@ import java.util.Date;
 @Entity
 public class Task {
     @PrimaryKey(autoGenerate = true)
-    public    Long id;
+    public Long id;
     String title;
-     String body;
+    String body;
     TaskEnum state;
 
     java.util.Date dateCreated;
@@ -23,6 +23,7 @@ public class Task {
         this.state = state;
         this.dateCreated = dateCreated;
     }
+
     public Long getId() {
         return id;
     }

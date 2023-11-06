@@ -1,7 +1,7 @@
 package com.androidlab.taskmaster.activity;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +23,7 @@ public class AddTaskActivity extends AppCompatActivity {
     private int totalTasks = 0;
     private TextView totalTasksTextView;
     TaskDataBase taskDataBase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -12,7 +12,8 @@ import java.util.List;
 @Dao
 public interface TaskDao {
     @Insert
-    public void insertTask (Task task);
+    public void insertTask(Task task);
+
     @Query("SELECT * FROM Task")
     public List<Task> findAll();
 }

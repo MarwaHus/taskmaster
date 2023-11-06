@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.androidlab.taskmaster"
-        minSdk 24
+        minSdk 33
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -29,6 +29,10 @@ android {
 }
 
 dependencies {
+    implementation group: 'androidx.test.espresso', name: 'espresso-contrib', version: '3.5.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation 'androidx.test:rules:1.5.0'
     def room_version = "2.6.0"
 
     implementation "androidx.room:room-runtime:$room_version"
