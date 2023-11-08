@@ -1,15 +1,11 @@
 package com.androidlab.taskmaster.model;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
 import com.androidlab.taskmaster.TaskEnum;
 
 import java.util.Date;
 
-@Entity
 public class Task {
-    @PrimaryKey(autoGenerate = true)
     public Long id;
     String title;
     String body;
