@@ -10,10 +10,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.amplifyframework.datastore.generated.model.Task;
 import com.androidlab.taskmaster.R;
 import com.androidlab.taskmaster.activity.MainActivity;
 import com.androidlab.taskmaster.activity.TaskDetailActivity;
-import com.androidlab.taskmaster.model.Task;
 
 import java.util.List;
 
@@ -37,7 +37,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskListViewHo
     public void onBindViewHolder(@NonNull TaskListViewHolder holder, int position) {
         TextView taskTextViewFragment = holder.itemView.findViewById(R.id.textViewTaskFragment);
         String title = taskList.get(position).getTitle();
-        String body = taskList.get(position).getBody();
+       String body = taskList.get(position).getBody();
         String state = taskList.get(position).getState().name();
         String taskInfo = "Title: " + title;
         taskTextViewFragment.setText(taskInfo);
