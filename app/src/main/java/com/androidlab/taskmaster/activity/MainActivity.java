@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         String username = preferences.getString(SettingsActivity.USER_NAME, "NO USERNAME");
         ((TextView) findViewById(R.id.nametextView)).setText(getString(R.string.username_main, username));
        // tasks = taskDataBase.taskDao().findAll();
+
         Amplify.API.query(
                 ModelQuery.list(com.amplifyframework.datastore.generated.model.Task.class),
                 success ->
