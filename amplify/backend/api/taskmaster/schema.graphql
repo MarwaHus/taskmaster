@@ -7,12 +7,14 @@ type Todo @model {
   name: String!
   description: String
 }
-type Product @model @auth(rules: [{allow: public}]){
+type Task @model @auth(rules: [{allow: public}]){
   id: ID!
   name: String!
   description: String
   dateCreated: AWSDateTime
   productCategory: productCategoryEnum
+  teamId: ID! @index(name: "byTeam", sortKeyFields: ["name"])
+  team: Team @belongsTo(fields: ["teamId"])
 }
 
 enum productCategoryEnum{
@@ -20,4 +22,10 @@ enum productCategoryEnum{
   Assigned,
   In_Progress,
   Complete
+}
+type Team @model @auth(rules: [{allow: public}])
+{
+  id: ID!
+  teamName: String!
+  tasks: [Task] @hasMany(indexName: "byTeam", fields: ["id"])
 }
