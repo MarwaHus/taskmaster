@@ -21,19 +21,24 @@ public class TaskDetailActivity extends AppCompatActivity {
         String title = "";
         String body = "";
         String state = "";
+        String team = "";
         if (callingIntent != null) {
             title = callingIntent.getStringExtra(MainActivity.TASK_TITLE_TAG);
             body = callingIntent.getStringExtra(MainActivity.TASK_BODY_TAG);
             state = callingIntent.getStringExtra(MainActivity.TASK_STATE_TAG);
+            team = callingIntent.getStringExtra(MainActivity.TASK_TEAM_TAG);
+
         }
 
         TextView titleTextView = findViewById(R.id.titleTextView);
         TextView bodyTextView = findViewById(R.id.bodyTextView);
         TextView stateTextView = findViewById(R.id.stateTextView);
+        TextView teamTextView = findViewById(R.id.teamTextView);
+
         titleTextView.setText(title);
         bodyTextView.setText(body);
         stateTextView.setText(state);
-
+        teamTextView.setText(team);
         Button backTaskButton = findViewById(R.id.backk_button3);
         backTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override

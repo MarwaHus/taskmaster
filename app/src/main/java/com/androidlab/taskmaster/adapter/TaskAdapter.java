@@ -39,6 +39,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskListViewHo
         String title = taskList.get(position).getName();
        String body = taskList.get(position).getDescription();
         String state = taskList.get(position).getProductCategory().name();
+        String team =taskList.get(position).getTeam().getTeamName();
         String taskInfo = "Title: " + title;
         taskTextViewFragment.setText(taskInfo);
 
@@ -47,6 +48,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskListViewHo
             intent.putExtra(MainActivity.TASK_TITLE_TAG, title);
             intent.putExtra(MainActivity.TASK_BODY_TAG, body);
             intent.putExtra(MainActivity.TASK_STATE_TAG, state.toString());
+           // intent.putExtra(MainActivity.TASK_TEAM_TAG, team.toString());
+
             context.startActivity(intent);
         });
     }

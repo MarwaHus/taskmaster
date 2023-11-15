@@ -2,14 +2,9 @@ package com.amplifyframework.datastore.generated.model;
 
 import com.amplifyframework.core.model.temporal.Temporal;
 import com.amplifyframework.core.model.annotations.BelongsTo;
-import com.amplifyframework.core.model.ModelIdentifier;
-
-import java.util.List;
 import java.util.UUID;
 import java.util.Objects;
-
 import androidx.core.util.ObjectsCompat;
-
 import com.amplifyframework.core.model.AuthStrategy;
 import com.amplifyframework.core.model.Model;
 import com.amplifyframework.core.model.ModelOperation;
@@ -18,12 +13,11 @@ import com.amplifyframework.core.model.annotations.Index;
 import com.amplifyframework.core.model.annotations.ModelConfig;
 import com.amplifyframework.core.model.annotations.ModelField;
 import com.amplifyframework.core.model.query.predicate.QueryField;
-
 import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 
 /** This is an auto generated class representing the Task type in your schema. */
 @SuppressWarnings("all")
-@ModelConfig(pluralName = "Tasks", type = Model.Type.USER, version = 1, authRules = {
+@ModelConfig(pluralName = "Tasks", authRules = {
   @AuthRule(allow = AuthStrategy.PUBLIC, operations = { ModelOperation.CREATE, ModelOperation.UPDATE, ModelOperation.DELETE, ModelOperation.READ })
 })
 @Index(name = "byTeam", fields = {"teamId","name"})
@@ -39,7 +33,7 @@ public final class Task implements Model {
   private final @ModelField(targetType="String") String description;
   private final @ModelField(targetType="AWSDateTime") Temporal.DateTime dateCreated;
   private final @ModelField(targetType="productCategoryEnum") ProductCategoryEnum productCategory;
-  private final @ModelField(targetType="Team") @BelongsTo(targetName = "teamId", targetNames = {"teamId"}, type = Team.class) Team team;
+  private final @ModelField(targetType="Team") @BelongsTo(targetName = "teamId", type = Team.class) Team team;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   /** @deprecated This API is internal to Amplify and should not be used. */
@@ -291,13 +285,4 @@ public final class Task implements Model {
       return (CopyOfBuilder) super.team(team);
     }
   }
-  
-
-  public static class TaskIdentifier extends ModelIdentifier<Task> {
-    private static final long serialVersionUID = 1L;
-    public TaskIdentifier(String id) {
-      super(id);
-    }
-  }
-  
 }

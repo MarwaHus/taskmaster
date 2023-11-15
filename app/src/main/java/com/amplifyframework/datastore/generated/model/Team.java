@@ -2,7 +2,6 @@ package com.amplifyframework.datastore.generated.model;
 
 import com.amplifyframework.core.model.annotations.HasMany;
 import com.amplifyframework.core.model.temporal.Temporal;
-import com.amplifyframework.core.model.ModelIdentifier;
 
 import java.util.List;
 import java.util.UUID;
@@ -23,7 +22,7 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 
 /** This is an auto generated class representing the Team type in your schema. */
 @SuppressWarnings("all")
-@ModelConfig(pluralName = "Teams", type = Model.Type.USER, version = 1, authRules = {
+@ModelConfig(pluralName = "Teams", authRules = {
   @AuthRule(allow = AuthStrategy.PUBLIC, operations = { ModelOperation.CREATE, ModelOperation.UPDATE, ModelOperation.DELETE, ModelOperation.READ })
 })
 public final class Team implements Model {
@@ -187,13 +186,4 @@ public final class Team implements Model {
       return (CopyOfBuilder) super.teamName(teamName);
     }
   }
-  
-
-  public static class TeamIdentifier extends ModelIdentifier<Team> {
-    private static final long serialVersionUID = 1L;
-    public TeamIdentifier(String id) {
-      super(id);
-    }
-  }
-  
 }

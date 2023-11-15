@@ -80,6 +80,22 @@ of a tapped task are also displayed on the detail page, in addition to the title
 --------------------------------------------------
 
 # Testing Views with Espresso
+
 add more Espresso UI tests to the application, and complete/fix up/polish any remaining feature tasks from previous labs.
 
+# lab32:Integrating AWS for Cloud Data Storage.
+
+# lab33:Another Day, Another Model
+### Overview 
+1. Create a new entity for Team with a name and a list of tasks.
+2. Update your existing Task entity to be owned by a Team.
+3. Manually create three teams by running a mutation three times in your code.
+4. Modify the Add Task form to include a Spinner or Radio Buttons for selecting the team that the task belongs to.
+5. Allow the user to choose their team on the Settings page in addition to their username.
+6. Use the selected team to display only that team's tasks on the homepage.
+### screenshots
+<div>
+  <img src="screenshots/lab33a.png" width="300">
+  <img src="screenshots/lab33b.png" width="300">
+</div>
 
