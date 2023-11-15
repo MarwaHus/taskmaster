@@ -1,6 +1,7 @@
 package com.androidlab.taskmaster.model;
 
 
+import com.amplifyframework.core.model.temporal.Temporal;
 import com.androidlab.taskmaster.TaskEnum;
 
 import java.util.Date;
@@ -20,7 +21,11 @@ public class Task {
         this.dateCreated = dateCreated;
     }
 
-    public Long getId() {
+    public static com.amplifyframework.datastore.generated.model.Task.NameStep builder() {
+        return null;
+    }
+
+    public String getId() {
         return id;
     }
 
@@ -49,11 +54,13 @@ public class Task {
         this.state = state;
     }
 
-    public Date getDateCreated() {
+    public Temporal.DateTime getDateCreated() {
         return dateCreated;
     }
 
     public void setDateCreated(Date dateCreated) {
         this.dateCreated = dateCreated;
     }
+
+
 }

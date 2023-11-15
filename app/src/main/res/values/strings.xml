@@ -3,4 +3,7 @@
     <string name="username_main">Username: %1$s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="task_blank_fragment">Blank Task Name</string>
+    <string name="description" />
+    <string name="task_name" />
+    <string name="save" />
 </resources>
