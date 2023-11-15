@@ -60,6 +60,26 @@
         app:layout_constraintVertical_bias="0.25"
         tools:ignore="MissingConstraints" />
 
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="398dp"
+        android:layout_height="39dp"
+        app:layout_constraintBottom_toTopOf="@+id/saveButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.785" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="108dp"
+        android:layout_height="24dp"
+        android:text="Team"
+        app:layout_constraintBottom_toTopOf="@+id/spinner2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.822" />
+
     <Button
         android:id="@+id/saveButton"
         android:layout_width="130dp"
