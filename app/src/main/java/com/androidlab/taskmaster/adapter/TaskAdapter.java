@@ -48,7 +48,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskListViewHo
             intent.putExtra(MainActivity.TASK_TITLE_TAG, title);
             intent.putExtra(MainActivity.TASK_BODY_TAG, body);
             intent.putExtra(MainActivity.TASK_STATE_TAG, state.toString());
-           // intent.putExtra(MainActivity.TASK_TEAM_TAG, team.toString());
+            intent.putExtra(MainActivity.TASK_TEAM_TAG, team.toString());
 
             context.startActivity(intent);
         });
