@@ -7,6 +7,33 @@
     android:layout_height="match_parent"
     tools:context=".activity.AddTaskActivity">
 
+    <TextView
+        android:id="@+id/textViewState2"
+        android:layout_width="354dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="252dp"
+        android:text="Team"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintVertical_bias="0.36"
+        tools:ignore="MissingConstraints" />
+
+    <Spinner
+        android:id="@+id/spinner5"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/submit_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewState2"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="424dp"
@@ -98,6 +125,7 @@
         app:layout_constraintVertical_bias="0.339"
         tools:ignore="MissingConstraints" />
 
+
     <TextView
         android:id="@+id/textViewState"
         android:layout_width="354dp"
@@ -108,7 +136,7 @@
         app:layout_constraintHorizontal_bias="0.28"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/task_body"
-        app:layout_constraintVertical_bias="0.08"
+        app:layout_constraintVertical_bias="0.097"
         tools:ignore="MissingConstraints" />
 
     <Spinner
@@ -117,10 +145,9 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/submit_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/task_body"
-        app:layout_constraintVertical_bias="0.446"
+        app:layout_constraintVertical_bias="0.331"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -136,9 +163,8 @@
         app:layout_constraintHorizontal_bias="0.455"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.653"
+        app:layout_constraintVertical_bias="0.774"
         tools:ignore="MissingConstraints" />
-
 
     <TextView
         android:id="@+id/textView5"
@@ -150,9 +176,8 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.727"
+        app:layout_constraintVertical_bias="0.847"
         tools:ignore="MissingConstraints" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -99,3 +99,12 @@ add more Espresso UI tests to the application, and complete/fix up/polish any re
   <img src="screenshots/lab33b.png" width="300">
 </div>
 
+-------------------------------------------------------------------
+# lab34: Update & Delete 
+### Overview 
+add update and delete buttons.
+### screenshots
+<div>
+  <img src="screenshots/lab34a.png" width="300">
+  <img src="screenshots/lab34b.png" width="300">
+</div>
