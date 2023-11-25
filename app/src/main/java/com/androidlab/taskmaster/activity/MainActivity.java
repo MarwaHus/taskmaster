@@ -1,3 +1,4 @@
+
 package com.androidlab.taskmaster.activity;
 
 import static com.androidlab.taskmaster.activity.AddTaskActivity.TAG;
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String TASK_STATE_TAG = "state";
     public static final String DATABASE_NAME = "add_new_task";
     public static final String TASK_TEAM_TAG = "team" ;
+    public static final String TASK_ID_TAG = "TASK ID TAG" ;
+
     List<Task> tasks = new ArrayList<com.amplifyframework.datastore.generated.model.Task>();
     TaskAdapter adapter;
     SharedPreferences preferences;
@@ -109,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 ModelQuery.list(com.amplifyframework.datastore.generated.model.Task.class),
                 success ->
                 {
-                    Log.i(TAG, "Read Product successfully");
+                    Log.i(TAG, "Read Task successfully");
                     tasks.clear();
                     for (com.amplifyframework.datastore.generated.model.Task databaseProduct : success.getData()){
                         tasks.add(databaseProduct);

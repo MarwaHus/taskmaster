@@ -1,5 +1,7 @@
 package com.androidlab.taskmaster.adapter;
 
+import static com.androidlab.taskmaster.activity.MainActivity.TASK_ID_TAG;
+
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.amplifyframework.datastore.generated.model.Task;
 import com.androidlab.taskmaster.R;
+import com.androidlab.taskmaster.activity.EditActivity;
 import com.androidlab.taskmaster.activity.MainActivity;
 import com.androidlab.taskmaster.activity.TaskDetailActivity;
 
@@ -44,7 +47,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskListViewHo
         taskTextViewFragment.setText(taskInfo);
 
         holder.itemView.setOnClickListener(view -> {
-            Intent intent = new Intent(context, TaskDetailActivity.class);
+//            Intent intent = new Intent(context, TaskDetailActivity.class);
+            Intent intent = new Intent(context, EditActivity.class);
+            intent.putExtra(TASK_ID_TAG, taskList.get(position).getId());
             intent.putExtra(MainActivity.TASK_TITLE_TAG, title);
             intent.putExtra(MainActivity.TASK_BODY_TAG, body);
             intent.putExtra(MainActivity.TASK_STATE_TAG, state.toString());

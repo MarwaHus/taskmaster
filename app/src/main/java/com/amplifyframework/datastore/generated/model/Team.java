@@ -22,7 +22,7 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 
 /** This is an auto generated class representing the Team type in your schema. */
 @SuppressWarnings("all")
-@ModelConfig(pluralName = "Teams", authRules = {
+@ModelConfig(pluralName = "Teams",  authRules = {
   @AuthRule(allow = AuthStrategy.PUBLIC, operations = { ModelOperation.CREATE, ModelOperation.UPDATE, ModelOperation.DELETE, ModelOperation.READ })
 })
 public final class Team implements Model {
@@ -186,4 +186,13 @@ public final class Team implements Model {
       return (CopyOfBuilder) super.teamName(teamName);
     }
   }
+  
+
+  /*public static class TeamIdentifier extends ModelIdentifier<Team> {
+    private static final long serialVersionUID = 1L;
+    public TeamIdentifier(String id) {
+      super(id);
+    }
+  }*/
+  
 }
