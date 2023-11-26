@@ -30,31 +30,104 @@ query ListTodos(
   }
 }
 
-query GetProduct($id: ID!) {
-  getProduct(id: $id) {
+query GetTask($id: ID!) {
+  getTask(id: $id) {
     id
     name
     description
     dateCreated
     productCategory
+    teamId
+    team {
+      id
+      teamName
+      createdAt
+      updatedAt
+      __typename
+    }
     createdAt
     updatedAt
     __typename
   }
 }
 
-query ListProducts(
-  $filter: ModelProductFilterInput
+query ListTasks(
+  $filter: ModelTaskFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listProducts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listTasks(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
       name
       description
       dateCreated
       productCategory
+      teamId
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetTeam($id: ID!) {
+  getTeam(id: $id) {
+    id
+    teamName
+    tasks {
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListTeams(
+  $filter: ModelTeamFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listTeams(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      teamName
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query TasksByTeamIdAndName(
+  $teamId: ID!
+  $name: ModelStringKeyConditionInput
+  $sortDirection: ModelSortDirection
+  $filter: ModelTaskFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  tasksByTeamIdAndName(
+    teamId: $teamId
+    name: $name
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      name
+      description
+      dateCreated
+      productCategory
+      teamId
       createdAt
       updatedAt
       __typename
