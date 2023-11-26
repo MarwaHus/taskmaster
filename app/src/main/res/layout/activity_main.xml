@@ -7,6 +7,36 @@
     android:background="@color/white"
     tools:context=".activity.MainActivity">
 
+    <Button
+        android:id="@+id/loginTaskMasterButton"
+        android:layout_width="132dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/design_default_color_primary"
+        android:fontFamily="cursive"
+        android:text=" Log in"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <Button
+        android:id="@+id/logoutTaskMasterButton"
+        android:layout_width="132dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/design_default_color_primary"
+        android:fontFamily="cursive"
+        android:text="Log out"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.878"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="424dp"

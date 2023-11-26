@@ -108,3 +108,14 @@ add update and delete buttons.
   <img src="screenshots/lab34a.png" width="300">
   <img src="screenshots/lab34b.png" width="300">
 </div>
+
+---------------------------------------------------------
+# lab36: Adding Cognito
+### Overview
+allow users to sign up and log in using Cognito.
+### screenshots
+<div>
+  <img src="screenshots/lab36a.png" width="300">
+  <img src="screenshots/lab36b.png" width="300">
+  <img src="screenshots/lab36c.png" width="300">
+</div>
