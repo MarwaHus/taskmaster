@@ -37,6 +37,7 @@ query GetTask($id: ID!) {
     description
     dateCreated
     productCategory
+    productImageS3Key
     teamId
     team {
       id
@@ -63,6 +64,7 @@ query ListTasks(
       description
       dateCreated
       productCategory
+      productImageS3Key
       teamId
       createdAt
       updatedAt
@@ -127,6 +129,7 @@ query TasksByTeamIdAndName(
       description
       dateCreated
       productCategory
+      productImageS3Key
       teamId
       createdAt
       updatedAt
