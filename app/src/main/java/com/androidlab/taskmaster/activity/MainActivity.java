@@ -25,6 +25,10 @@ import com.amplifyframework.datastore.generated.model.Task;
 import com.androidlab.taskmaster.R;
 import com.androidlab.taskmaster.adapter.TaskAdapter;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,6 +96,32 @@ public class MainActivity extends AppCompatActivity {
                 }
         );*/
         init();
+        String emptyFilename= "emptyTestFileName";
+        File emptyFile = new File(getApplicationContext().getFilesDir(), emptyFilename);
+
+        try {
+            BufferedWriter emptyFileBufferedWriter= new BufferedWriter(new FileWriter(emptyFile));
+
+            emptyFileBufferedWriter.append("Some text here");
+
+            emptyFileBufferedWriter.close();
+        }catch (IOException ioe){
+            Log.i(TAG, "could not write locally with filename: "+ emptyFilename);
+        }
+
+        String emptyFileS3Key = "someFileOnS3.txt";
+        Amplify.Storage.uploadFile(
+                emptyFileS3Key,
+                emptyFile,
+                success ->
+                {
+                    Log.i(TAG, "S3 upload succeeded and the Key is: " + success.getKey());
+                },
+                failure ->
+                {
+                    Log.i(TAG, "S3 upload failed! " + failure.getMessage());
+                }
+        );
         setUpListRecyclerView();
         Button addTaskButton = (Button) findViewById(R.id.addButton);
         Button allTasksButton = (Button) findViewById(R.id.allButton);
@@ -128,35 +158,6 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView ListRecyclerView = findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         ListRecyclerView.setLayoutManager(layoutManager);
-
-//
-//        Team team1 =
-//                Team.builder()
-//                    .teamName("Team1")
-//                    .build();
-//        Team team2 =
-//                Team.builder()
-//                        .teamName("Team2")
-//                        .build();
-//        Team team3 =
-//                Team.builder()
-//                        .teamName("Team3")
-//                        .build();
-//        Amplify.API.mutate(
-//               ModelMutation.create(team1),
-//               successResponse -> Log.i(TAG, "MainActivity.onCreate(): made a team successfully"),
-//               failureResponse -> Log.i(TAG, "MainActivity.onCreate(): team failed with this response: "+failureResponse)
-//       );
-//        Amplify.API.mutate(
-//                ModelMutation.create(team2),
-//                successResponse -> Log.i(TAG, "MainActivity.onCreate(): made a team successfully"),
-//                failureResponse -> Log.i(TAG, "MainActivity.onCreate(): team failed with this response: "+failureResponse)
-//        );
-//        Amplify.API.mutate(
-//                ModelMutation.create(team3),
-//                successResponse -> Log.i(TAG, "MainActivity.onCreate(): made a team successfully"),
-//                failureResponse -> Log.i(TAG, "MainActivity.onCreate(): team failed with this response: "+failureResponse)
-//        );
         Amplify.API.query(
                 ModelQuery.list(com.amplifyframework.datastore.generated.model.Task.class),
                 success ->
@@ -172,10 +173,8 @@ public class MainActivity extends AppCompatActivity {
                 },
                 failure -> Log.i(TAG, "Did not read products successfully")
         );
-
         adapter = new TaskAdapter(tasks, this);
         ListRecyclerView.setAdapter(adapter);
-
     }
 
     @Override

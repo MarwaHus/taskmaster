@@ -52,6 +52,7 @@ mutation CreateTask(
     description
     dateCreated
     productCategory
+    productImageS3Key
     teamId
     team {
       id
@@ -76,6 +77,7 @@ mutation UpdateTask(
     description
     dateCreated
     productCategory
+    productImageS3Key
     teamId
     team {
       id
@@ -100,6 +102,7 @@ mutation DeleteTask(
     description
     dateCreated
     productCategory
+    productImageS3Key
     teamId
     team {
       id

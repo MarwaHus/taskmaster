@@ -202,13 +202,4 @@ public final class Todo implements Model {
       return (CopyOfBuilder) super.description(description);
     }
   }
-  
-
-  /*public static class TodoIdentifier extends ModelIdentifier<Todo> {
-    private static final long serialVersionUID = 1L;
-    public TodoIdentifier(String id) {
-      super(id);
-    }
-  }
-  */
 }

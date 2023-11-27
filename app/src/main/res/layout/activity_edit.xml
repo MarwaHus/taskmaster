@@ -16,121 +16,122 @@
         tools:layout_editor_absoluteX="-7dp"
         tools:layout_editor_absoluteY="-3dp" />
 
+    <EditText
+        android:id="@+id/editTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.594"
+        app:layout_constraintStart_toEndOf="@+id/taskTextView1"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
     <TextView
         android:id="@+id/taskTextView1"
         android:layout_width="107dp"
         android:layout_height="30dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="28dp"
         android:text="@string/task_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
-
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="108dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="72dp"
-        android:text="@string/description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/taskTextView1" />
 
     <TextView
         android:id="@+id/state"
         android:layout_width="108dp"
         android:layout_height="33dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="72dp"
         android:text="@string/task_category"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintHorizontal_bias="0.072"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/description" />
 
-    <TextView
-        android:id="@+id/team"
-        android:layout_width="110dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="48dp"
-        android:text="@string/team"
+    <Spinner
+        android:id="@+id/spinner4"
+        android:layout_width="234dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="224dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.048"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/state" />
-
-    <EditText
-        android:id="@+id/editTask"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.556"
-        app:layout_constraintStart_toEndOf="@+id/taskTextView1"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
-
-    <EditText
-        android:id="@+id/editdesc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="156dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.569"
-        app:layout_constraintStart_toEndOf="@+id/description"
+        app:layout_constraintHorizontal_bias="0.914"
+        app:layout_constraintStart_toEndOf="@+id/state"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 
     <Spinner
         android:id="@+id/spinner3"
         android:layout_width="231dp"
         android:layout_height="31dp"
-        android:layout_marginTop="344dp"
+        android:layout_marginTop="304dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.836"
+        app:layout_constraintHorizontal_bias="0.92"
         app:layout_constraintStart_toEndOf="@+id/team"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2"
         tools:ignore="MissingConstraints" />
 
-    <Spinner
-        android:id="@+id/spinner4"
-        android:layout_width="234dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="264dp"
+    <TextView
+        android:id="@+id/team"
+        android:layout_width="110dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="44dp"
+        android:text="@string/team"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.826"
-        app:layout_constraintStart_toEndOf="@+id/state"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/state" />
 
-    <Button
-        android:id="@+id/updatebtn"
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="108dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskTextView1" />
+
+    <EditText
+        android:id="@+id/editdesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="84dp"
-        android:text="save"
-        app:layout_constraintEnd_toStartOf="@+id/deletebtn"
-        app:layout_constraintHorizontal_bias="0.157"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/team" />
+        android:layout_marginTop="116dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintStart_toEndOf="@+id/description"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 
     <Button
         android:id="@+id/deletebtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="460dp"
+        android:layout_marginEnd="92dp"
         android:text="Delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.854"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-        app:layout_constraintVertical_bias="0.019" />
+        app:layout_constraintVertical_bias="0.589" />
+
+    <Button
+        android:id="@+id/updatebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="32dp"
+        android:text="save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/deletebtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editImageView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView7"
@@ -147,5 +148,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/toolbar2"
         app:layout_constraintVertical_bias="0.013" />
+
+    <Button
+        android:id="@+id/addImageButton"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="80dp"
+        android:text=" Add Image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/editImageView"
+        app:layout_constraintTop_toBottomOf="@+id/spinner3" />
+
+    <ImageView
+        android:id="@+id/editImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner3"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/deleteImageButton"
+        android:layout_width="135dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="40dp"
+        android:text="Delete Image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.354"
+        app:layout_constraintStart_toEndOf="@+id/editImageView"
+        app:layout_constraintTop_toBottomOf="@+id/addImageButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
