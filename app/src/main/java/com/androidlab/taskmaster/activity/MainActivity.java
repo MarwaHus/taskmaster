@@ -1,4 +1,3 @@
-
 package com.androidlab.taskmaster.activity;
 
 import static com.androidlab.taskmaster.activity.AddTaskActivity.TAG;
@@ -46,55 +45,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-       /* Amplify.Auth.signUp("marwa.hu18@gmail.com",
-                "marwa@2023",
-              AuthSignUpOptions.builder()
-                      .userAttribute(AuthUserAttributeKey.email(),"marwa.hu18@gmail.com")
-                      .userAttribute(AuthUserAttributeKey.nickname(),"M")
-                      .build(),
-                good ->
-                {
-                    Log.i(TAG, "Signup succeeded: "+ good.toString());
-                },
-                bad ->
-                {
-                    Log.i(TAG, "Signup failed with username: "+ "marwa.hu18@gmail.com"+ " with this message: "+ bad.toString());
-                }
-        );*/
-        /*Amplify.Auth.confirmSignUp("marwa.hu18@gmail.com",
-                "033206",
-                success ->
-                {
-                    Log.i(TAG,"verification succeeded: "+ success.toString());
-
-                },
-                failure ->
-                {
-                    Log.i(TAG,"verification failed: "+ failure.toString());
-                }
-        );*/
-        /*Amplify.Auth.signIn("marwa.hu18@gmail.com",
-                "marwa@2023",
-                success ->
-                {
-                    Log.i(TAG, "Login succeeded: "+success.toString());
-                },
-                failure ->
-                {
-                    Log.i(TAG, "Login failed: "+failure.toString());
-                }
-        );*/
-       /* Amplify.Auth.signOut(
-                () ->
-                {
-                    Log.i(TAG,"Logout succeeded");
-                },
-                failure ->
-                {
-                    Log.i(TAG, "Logout failed");
-                }
-        );*/
         init();
         String emptyFilename= "emptyTestFileName";
         File emptyFile = new File(getApplicationContext().getFilesDir(), emptyFilename);
