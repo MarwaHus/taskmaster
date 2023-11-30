@@ -34,9 +34,19 @@
         <activity
             android:name=".activity.AllTasksActivity"
             android:exported="false" />
+       <!-- <activity
+            android:name=".activity.AddTaskActivity"
+            android:exported="false" />-->
         <activity
             android:name=".activity.AddTaskActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter android:label="Grab text or image for new task">
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity.MainActivity"
             android:exported="true">

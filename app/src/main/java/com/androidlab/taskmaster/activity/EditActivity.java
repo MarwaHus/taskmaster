@@ -97,13 +97,17 @@ public class EditActivity extends AppCompatActivity {
             Log.e(TAG, "ExecutionException while getting task");
         }
 
+        if(taskId != null){
         nameEditText = findViewById(R.id.editTask);
         nameEditText.setText(taskToEdit.getName());
-
         descriptionEditText = findViewById(R.id.editdesc);
         descriptionEditText.setText(taskToEdit.getDescription());
-
         s3ImageKey = taskToEdit.getProductImageS3Key();
+
+        }
+
+        updateImageButtons();
+
         if (s3ImageKey != null && !s3ImageKey.isEmpty()) {
             Amplify.Storage.downloadFile(
                     s3ImageKey,
@@ -119,7 +123,9 @@ public class EditActivity extends AppCompatActivity {
                     }
             );
         }
-        setUpSpinners();
+        if(taskId != null) {
+            setUpSpinners();
+        }
     }
 
     private void setUpSpinners() {

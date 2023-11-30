@@ -1,10 +1,13 @@
 package com.androidlab.taskmaster.activity;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +24,8 @@ import com.amplifyframework.datastore.generated.model.Team;
 import com.androidlab.taskmaster.R;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -51,6 +56,43 @@ public class AddTaskActivity extends AppCompatActivity {
             Intent intent = new Intent(AddTaskActivity.this, MainActivity.class);
             startActivity(intent);
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Intent callingIntent = getIntent();
+        if (callingIntent != null && callingIntent.getType() != null && callingIntent.getType().equals("text/plain")) {
+            String callingText = callingIntent.getStringExtra(Intent.EXTRA_TEXT);
+
+            if (callingText != null) {
+                String cleanedText = cleanText(callingText);
+                ((EditText) findViewById(R.id.task_title)).setText(cleanedText);
+            }
+        }
+
+        if(callingIntent != null && callingIntent.getType() != null && callingIntent.getType().startsWith("image") ){
+            Uri incomingImageFileUri= callingIntent.getParcelableExtra(Intent.EXTRA_STREAM);
+
+            if (incomingImageFileUri != null){
+                InputStream incomingImageFileInputStream = null;
+
+                try {
+                    incomingImageFileInputStream = getContentResolver().openInputStream(incomingImageFileUri);
+
+                    ImageView productImageView = findViewById(R.id.editImageView);
+
+                    if (productImageView != null) {
+
+                        productImageView.setImageBitmap(BitmapFactory.decodeStream(incomingImageFileInputStream));
+                    }else {
+                        Log.e(TAG, "ImageView is null for some reasons");
+                    }
+                }catch (FileNotFoundException fnfe){
+                    Log.e(TAG," Could not get file stram from the URI "+fnfe.getMessage(),fnfe);
+                }
+            }
+        }
     }
 
     public void setUpSpinner() {
@@ -135,5 +177,10 @@ public class AddTaskActivity extends AppCompatActivity {
                 Log.e(TAG, "Error getting teams", e);
             }
         });
+    }
+    private String cleanText(String text) {
+        text = text.replaceAll("\\b(?:https?|ftp):\\/\\/\\S+\\b", "");
+        text = text.replaceAll("\"", "");
+        return text;
     }
 }
