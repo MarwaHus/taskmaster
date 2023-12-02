@@ -80,7 +80,7 @@ public class AddTaskActivity extends AppCompatActivity {
                 try {
                     incomingImageFileInputStream = getContentResolver().openInputStream(incomingImageFileUri);
 
-                    ImageView productImageView = findViewById(R.id.editImageView);
+                    ImageView productImageView = findViewById(R.id.addImageView);
 
                     if (productImageView != null) {
 
@@ -94,7 +94,6 @@ public class AddTaskActivity extends AppCompatActivity {
             }
         }
     }
-
     public void setUpSpinner() {
         teamSpinner = findViewById(R.id.spinner5);
         Amplify.API.query(
