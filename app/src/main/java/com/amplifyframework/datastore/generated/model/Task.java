@@ -22,7 +22,7 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 
 /** This is an auto generated class representing the Task type in your schema. */
 @SuppressWarnings("all")
-@ModelConfig(pluralName = "Tasks", authRules = {
+@ModelConfig(pluralName = "Tasks",  authRules = {
   @AuthRule(allow = AuthStrategy.PUBLIC, operations = { ModelOperation.CREATE, ModelOperation.UPDATE, ModelOperation.DELETE, ModelOperation.READ })
 })
 @Index(name = "byTeam", fields = {"teamId","name"})
@@ -33,6 +33,8 @@ public final class Task implements Model {
   public static final QueryField DATE_CREATED = field("Task", "dateCreated");
   public static final QueryField PRODUCT_CATEGORY = field("Task", "productCategory");
   public static final QueryField PRODUCT_IMAGE_S3_KEY = field("Task", "productImageS3Key");
+  public static final QueryField PRODUCT_LATITUDE = field("Task", "productLatitude");
+  public static final QueryField PRODUCT_LONGITUDE = field("Task", "productLongitude");
   public static final QueryField TEAM = field("Task", "teamId");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String name;
@@ -40,6 +42,8 @@ public final class Task implements Model {
   private final @ModelField(targetType="AWSDateTime") Temporal.DateTime dateCreated;
   private final @ModelField(targetType="productCategoryEnum") ProductCategoryEnum productCategory;
   private final @ModelField(targetType="String") String productImageS3Key;
+  private final @ModelField(targetType="String") String productLatitude;
+  private final @ModelField(targetType="String") String productLongitude;
   private final @ModelField(targetType="Team") @BelongsTo(targetName = "teamId",  type = Team.class) Team team;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
@@ -73,6 +77,14 @@ public final class Task implements Model {
       return productImageS3Key;
   }
   
+  public String getProductLatitude() {
+      return productLatitude;
+  }
+  
+  public String getProductLongitude() {
+      return productLongitude;
+  }
+  
   public Team getTeam() {
       return team;
   }
@@ -85,13 +97,15 @@ public final class Task implements Model {
       return updatedAt;
   }
   
-  private Task(String id, String name, String description, Temporal.DateTime dateCreated, ProductCategoryEnum productCategory, String productImageS3Key, Team team) {
+  private Task(String id, String name, String description, Temporal.DateTime dateCreated, ProductCategoryEnum productCategory, String productImageS3Key, String productLatitude, String productLongitude, Team team) {
     this.id = id;
     this.name = name;
     this.description = description;
     this.dateCreated = dateCreated;
     this.productCategory = productCategory;
     this.productImageS3Key = productImageS3Key;
+    this.productLatitude = productLatitude;
+    this.productLongitude = productLongitude;
     this.team = team;
   }
   
@@ -109,6 +123,8 @@ public final class Task implements Model {
               ObjectsCompat.equals(getDateCreated(), task.getDateCreated()) &&
               ObjectsCompat.equals(getProductCategory(), task.getProductCategory()) &&
               ObjectsCompat.equals(getProductImageS3Key(), task.getProductImageS3Key()) &&
+              ObjectsCompat.equals(getProductLatitude(), task.getProductLatitude()) &&
+              ObjectsCompat.equals(getProductLongitude(), task.getProductLongitude()) &&
               ObjectsCompat.equals(getTeam(), task.getTeam()) &&
               ObjectsCompat.equals(getCreatedAt(), task.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), task.getUpdatedAt());
@@ -124,6 +140,8 @@ public final class Task implements Model {
       .append(getDateCreated())
       .append(getProductCategory())
       .append(getProductImageS3Key())
+      .append(getProductLatitude())
+      .append(getProductLongitude())
       .append(getTeam())
       .append(getCreatedAt())
       .append(getUpdatedAt())
@@ -141,6 +159,8 @@ public final class Task implements Model {
       .append("dateCreated=" + String.valueOf(getDateCreated()) + ", ")
       .append("productCategory=" + String.valueOf(getProductCategory()) + ", ")
       .append("productImageS3Key=" + String.valueOf(getProductImageS3Key()) + ", ")
+      .append("productLatitude=" + String.valueOf(getProductLatitude()) + ", ")
+      .append("productLongitude=" + String.valueOf(getProductLongitude()) + ", ")
       .append("team=" + String.valueOf(getTeam()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
@@ -168,6 +188,8 @@ public final class Task implements Model {
       null,
       null,
       null,
+      null,
+      null,
       null
     );
   }
@@ -179,6 +201,8 @@ public final class Task implements Model {
       dateCreated,
       productCategory,
       productImageS3Key,
+      productLatitude,
+      productLongitude,
       team);
   }
   public interface NameStep {
@@ -193,6 +217,8 @@ public final class Task implements Model {
     BuildStep dateCreated(Temporal.DateTime dateCreated);
     BuildStep productCategory(ProductCategoryEnum productCategory);
     BuildStep productImageS3Key(String productImageS3Key);
+    BuildStep productLatitude(String productLatitude);
+    BuildStep productLongitude(String productLongitude);
     BuildStep team(Team team);
   }
   
@@ -204,18 +230,22 @@ public final class Task implements Model {
     private Temporal.DateTime dateCreated;
     private ProductCategoryEnum productCategory;
     private String productImageS3Key;
+    private String productLatitude;
+    private String productLongitude;
     private Team team;
     public Builder() {
       
     }
     
-    private Builder(String id, String name, String description, Temporal.DateTime dateCreated, ProductCategoryEnum productCategory, String productImageS3Key, Team team) {
+    private Builder(String id, String name, String description, Temporal.DateTime dateCreated, ProductCategoryEnum productCategory, String productImageS3Key, String productLatitude, String productLongitude, Team team) {
       this.id = id;
       this.name = name;
       this.description = description;
       this.dateCreated = dateCreated;
       this.productCategory = productCategory;
       this.productImageS3Key = productImageS3Key;
+      this.productLatitude = productLatitude;
+      this.productLongitude = productLongitude;
       this.team = team;
     }
     
@@ -230,6 +260,8 @@ public final class Task implements Model {
           dateCreated,
           productCategory,
           productImageS3Key,
+          productLatitude,
+          productLongitude,
           team);
     }
     
@@ -265,6 +297,18 @@ public final class Task implements Model {
     }
     
     @Override
+     public BuildStep productLatitude(String productLatitude) {
+        this.productLatitude = productLatitude;
+        return this;
+    }
+    
+    @Override
+     public BuildStep productLongitude(String productLongitude) {
+        this.productLongitude = productLongitude;
+        return this;
+    }
+    
+    @Override
      public BuildStep team(Team team) {
         this.team = team;
         return this;
@@ -282,8 +326,8 @@ public final class Task implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String name, String description, Temporal.DateTime dateCreated, ProductCategoryEnum productCategory, String productImageS3Key, Team team) {
-      super(id, name, description, dateCreated, productCategory, productImageS3Key, team);
+    private CopyOfBuilder(String id, String name, String description, Temporal.DateTime dateCreated, ProductCategoryEnum productCategory, String productImageS3Key, String productLatitude, String productLongitude, Team team) {
+      super(id, name, description, dateCreated, productCategory, productImageS3Key, productLatitude, productLongitude, team);
       Objects.requireNonNull(name);
     }
     
@@ -313,10 +357,22 @@ public final class Task implements Model {
     }
     
     @Override
+     public CopyOfBuilder productLatitude(String productLatitude) {
+      return (CopyOfBuilder) super.productLatitude(productLatitude);
+    }
+    
+    @Override
+     public CopyOfBuilder productLongitude(String productLongitude) {
+      return (CopyOfBuilder) super.productLongitude(productLongitude);
+    }
+    
+    @Override
      public CopyOfBuilder team(Team team) {
       return (CopyOfBuilder) super.team(team);
     }
   }
+  
+
 
   
 }

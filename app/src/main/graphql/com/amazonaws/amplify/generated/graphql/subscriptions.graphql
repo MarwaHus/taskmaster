@@ -41,6 +41,8 @@ subscription OnCreateTask($filter: ModelSubscriptionTaskFilterInput) {
     dateCreated
     productCategory
     productImageS3Key
+    productLatitude
+    productLongitude
     teamId
     team {
       id
@@ -63,6 +65,8 @@ subscription OnUpdateTask($filter: ModelSubscriptionTaskFilterInput) {
     dateCreated
     productCategory
     productImageS3Key
+    productLatitude
+    productLongitude
     teamId
     team {
       id
@@ -85,6 +89,8 @@ subscription OnDeleteTask($filter: ModelSubscriptionTaskFilterInput) {
     dateCreated
     productCategory
     productImageS3Key
+    productLatitude
+    productLongitude
     teamId
     team {
       id
