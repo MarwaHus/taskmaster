@@ -53,6 +53,8 @@ mutation CreateTask(
     dateCreated
     productCategory
     productImageS3Key
+    productLatitude
+    productLongitude
     teamId
     team {
       id
@@ -78,6 +80,8 @@ mutation UpdateTask(
     dateCreated
     productCategory
     productImageS3Key
+    productLatitude
+    productLongitude
     teamId
     team {
       id
@@ -103,6 +107,8 @@ mutation DeleteTask(
     dateCreated
     productCategory
     productImageS3Key
+    productLatitude
+    productLongitude
     teamId
     team {
       id
