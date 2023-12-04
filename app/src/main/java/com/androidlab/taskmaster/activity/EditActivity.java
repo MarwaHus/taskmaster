@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.OpenableColumns;
@@ -33,9 +34,12 @@ import com.androidlab.taskmaster.R;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -53,19 +57,21 @@ public class EditActivity extends AppCompatActivity {
     private Spinner teamSpinner = null;
     private ActivityResultLauncher<Intent> activityResultLauncher;
     private String s3ImageKey = "";
-
+    private MediaPlayer mp = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
 
         activityResultLauncher = getImagePickingActivityResultLauncher();
+        mp= new MediaPlayer();
         setUpEditableUIElement();
         setUpSaveButton();
         setUpDeleteButton();
         setUpAddImageButton();
         setUpDeleteImageButton();
         updateImageButtons();
+        setUpSpeakButton();
     }
 
     private void setUpEditableUIElement() {
@@ -361,6 +367,37 @@ public class EditActivity extends AppCompatActivity {
         addImageButton.setVisibility(View.INVISIBLE);
     }
 
+
+    private void setUpSpeakButton(){
+        Button speakButton = (Button) findViewById(R.id.convertTextToSpeech);
+        speakButton.setOnClickListener(b ->
+        {
+            String taskName= ((EditText) findViewById(R.id.editTask)).getText().toString();
+
+            Amplify.Predictions.convertTextToSpeech(
+                    taskName,
+                    result -> playAudio(result.getAudioData()),
+                    error -> Log.e(TAG,"conversion failed ", error)
+            );
+        });
+    }
+    private void playAudio(InputStream data) {
+        File mp3File = new File(getCacheDir(), "audio.mp3");
+
+        try (OutputStream out = new FileOutputStream(mp3File)) {
+            byte[] buffer = new byte[8 * 1_024];
+            int bytesRead;
+            while ((bytesRead = data.read(buffer)) != -1) {
+                out.write(buffer, 0, bytesRead);
+            }
+            mp.reset();
+            mp.setOnPreparedListener(MediaPlayer::start);
+            mp.setDataSource(new FileInputStream(mp3File).getFD());
+            mp.prepareAsync();
+        } catch (IOException error) {
+            Log.e("MyAmplifyApp", "Error writing audio file", error);
+        }
+    }
     @SuppressLint("Range")
     public String getFileNameFromUri(Uri uri) {
         String result = null;

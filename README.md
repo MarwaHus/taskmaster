@@ -119,3 +119,9 @@ allow users to sign up and log in using Cognito.
   <img src="screenshots/lab36b.png" width="300">
   <img src="screenshots/lab36c.png" width="300">
 </div>
+
+--------------------------------------------------------
+<div>
+  <img src="screenshots/lab41a.png" width="300">
+  <img src="screenshots/lab41b.png" width="300">
+</div>
