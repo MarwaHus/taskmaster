@@ -16,10 +16,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amplifyframework.analytics.AnalyticsEvent;
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.auth.AuthUser;
 import com.amplifyframework.auth.AuthUserAttribute;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.core.model.temporal.Temporal;
 import com.amplifyframework.datastore.generated.model.Task;
 import com.androidlab.taskmaster.R;
 import com.androidlab.taskmaster.adapter.TaskAdapter;
@@ -29,6 +31,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -174,6 +177,13 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         tasks = new ArrayList<>();
+        AnalyticsEvent event = AnalyticsEvent.builder()
+                .name("openedApp")
+                .addProperty("time", Long.toString(new Date().getTime()))
+                .addProperty("trackingEvent", " main activity opened")
+                .build();
+
+        Amplify.Analytics.recordEvent(event);
     }
     private void setUpLoginAndLogoutButton(){
         Button loginButton = (Button) findViewById(R.id.loginTaskMasterButton);
